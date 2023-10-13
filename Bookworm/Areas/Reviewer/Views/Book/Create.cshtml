@@ -1,0 +1,31 @@
+﻿@model Book
+    <h2>Yeni Kitap Ekle</h2>
+<form method="post">
+@* enctype'ı dosya yüklemesi için kullanırız.*@
+
+    <div class="row" enctype="multipart/form-data">
+        <label asp-for="Name">  </label>
+        <input asp-for="Name" class="form-control" /> 
+    </div>
+
+    <div class="row">
+        <label asp-for="Detail"></label>
+        <input asp-for="Detail" class="form-control" /> 
+    </div>
+
+    <div class="row">
+        <label asp-for="Category_ID">  </label>
+        <input asp-for="Category_ID" class="form-control" /> 
+    </div>
+
+    <div class="row">
+        <label asp-for="Picture">   </label>
+        <input type="file" id="uploadImg" name="upImg" class="form-control"/> 
+    </div>
+
+            <button type="submit" class="btn btn-primary my-2">
+            Kaydet    
+            </button>
+       
+
+</form>

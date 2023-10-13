@@ -1,0 +1,63 @@
+﻿@*
+    @işaretiyle Modelimii belirtiriz
+*@
+@model IEnumerable<Book>
+
+<div class ="container">
+    
+    <div class ="row">
+         <div class ="col-6">
+             <h2> Kitap Listesi</h2>
+        </div>
+        <div class ="col-6" style="display: flex; justify-content: flex-end; align-items: center;">
+         @*tag helper oluşturulur. *@
+             <a asp-controller="Book" asp-action="Crup" class="btn btn-primary" style="display: flex; justify-content: center; align-items: center;">
+                 <span> Yeni Kitap Ekle</span>
+             </a>
+        </div>
+    </div>
+
+    <div class ="row">
+    
+
+        <table class="tabe table-bordered table-striped my-2 tab" >
+            <thead>
+                <tr>
+                    <th>
+                        Kitabın Resmi
+                    </th>
+                     <th>
+                       Kitap Adı
+                    </th>
+                    <th>
+                       Yazar Adı
+                    </th>
+                    <th>
+                       İşlem
+                    </th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+
+                @foreach(var book in Model){
+                <tr>
+                    
+                    <td > <img src="@book.Picture">  </td>
+                    <td> @book.Name  </td> 
+                      <td> @book.Writer  </td> 
+                    <td> 
+                      <a asp-controller="Book" asp-action="Crup" asp-route-id="@book.ID" class="btn btn-primary"> Güncelle</a>
+                      <a asp-controller="Book" asp-action="Delete" asp-route-id="@book.ID" class="btn btn-danger"> Sil</a>
+                    </td>
+                
+                </tr>
+                
+                }
+              
+
+            </tbody>
+        </table>
+    </div>
+</div>

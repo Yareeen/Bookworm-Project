@@ -1,0 +1,49 @@
+﻿@model Bookworm.Models.ViewModels.BookViewModel
+     @*Id 0'a eşitse ekleme yapıyoruzdur. Id 0'dan farklıysa güncelle.*@
+    <h2>Kitap @(Model.Book.ID<=0  ? "Ekle":"Bilgisini Güncelle")</h2>
+<form method="post" enctype="multipart/form-data">
+     <input asp-for="Book.ID" type="hidden">  </input>
+      <input asp-for="Book.Picture" type="hidden">  </input>
+    
+    @if(@Model != null)
+    {
+        <div class="col-6">
+            <img src=@Model.Book.Picture width="250px">
+        </div>
+    }
+
+    <div class="row">
+        <label asp-for="Book.Name"> Kitabın İsmi  </label>
+        <input asp-for="Book.Name" class="form-control" /> 
+    </div>
+
+
+
+      <div class="row">
+        <label asp-for="Book.Writer"> Kitabın Yazarı</label>
+        <input asp-for="Book.Writer" class="form-control" /> 
+    </div>
+
+    <div class="row">
+        <label asp-for="Book.Category_ID">  </label>
+        <select asp-for="Book.Category_ID" asp-items="@Model.CategoryList" class="form-control"> 
+         <option disable selected> -- Kategori Seçiniz -- </option>
+        </select>
+    </div>
+        <div class="row">
+        <label asp-for="Book.Detail"> Kitap Eleştirisi</label>
+        <input asp-for="Book.Detail" class="form-control" /> 
+    </div>
+    <div class="row">
+        <label asp-for="Book.Picture">   </label>
+       <input type="file" id="file" name="file" accept="image/*" class="form-control"/> 
+    </div>
+
+
+
+            <button type="submit" class="btn btn-primary my-2">
+            @(Model.Book.ID<=0  ? "Ekle":"Güncelle")  
+            </button>
+       
+
+</form>

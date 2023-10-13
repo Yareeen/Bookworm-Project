@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Book>
+
+<div class="row py-2">
+    @foreach (var item in Model)
+    {
+    <div class="col-lg-3 col-md-6">
+        <div class="row p-1">
+            <div class="col-12 p-1" style="border:1px solid #0066cc; border-radius:4px">
+                <div class="book_list pt-1" style="background-color: #bedeff;">
+                    <img src="@item.Picture" class="card-img-top rounded" style="max-width: 242px; min-height: 350px;max-height: 350px;display: block;margin: 20px auto;"/>
+                    <div class="book_list-body">
+                        <div px-1>
+                            <p class="book_list_title h6 text-primary" style="text-align: center;">@item.Name   </p>
+                            <p class=px-1 style="text-align: center;"> @item.Writer</p>
+                        </div>
+                    </div>
+                    <div>
+
+
+                        <a asp-action="Details" class="btn btn-primary form-control" style="text-align: center; width: 80%; margin: 15px 10%;" asp-route-bookId="@item.ID">Eleştiriyi Görmek için Tıkla</a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>

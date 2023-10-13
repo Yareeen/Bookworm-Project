@@ -1,0 +1,36 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.tab thead,
+.tab tbody,
+.tab tfoot,
+.tab tr,
+.tab td,
+.tab th {
+    padding: 10px;
+    border: 1px solid #d5d5d5;
+}
+
+.tab img {
+    display: block;
+    max-height: 200px;
+    min-height: 200px;
+    width: auto;
+    margin: auto;
+}
